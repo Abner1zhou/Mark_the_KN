@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 –*-
+# -*- coding: UTF-8 -*-
 """
 @author: 周世聪
 @contact: abner1zhou@gmail.com
@@ -66,3 +66,5 @@ biological_path_all = [cells_path,
                        genetics_and_evolution
                        ]
 biological_section = ['分子与细胞', '现代生物技术专题', '生物技术实践', '生物科学与社会', '稳态与环境', '遗传与进化']
+
+sw_path = os.path.join(root, 'data/stopwords/哈工大停用词表.txt')
