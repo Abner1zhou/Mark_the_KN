@@ -8,12 +8,13 @@ import os
 import pathlib
 
 root = pathlib.Path(os.path.abspath(__file__)).parent.parent
-data_path = os.path.join(root, 'data', '百度题库')
+data_path = os.path.join(root, 'data')
+question_data_path = os.path.join(data_path, '百度题库')
 
-History_path = os.path.join(data_path, '高中_历史', 'origin')
-Geography_path = os.path.join(data_path, '高中_地理', 'origin')
-Politics_path = os.path.join(data_path, '高中_政治', 'origin')
-Biological_path = os.path.join(data_path, '高中_生物', 'origin')
+History_path = os.path.join(question_data_path, '高中_历史', 'origin')
+Geography_path = os.path.join(question_data_path, '高中_地理', 'origin')
+Politics_path = os.path.join(question_data_path, '高中_政治', 'origin')
+Biological_path = os.path.join(question_data_path, '高中_生物', 'origin')
 # 我真的翻译的好累……
 ancient_his_path = os.path.join(History_path, '古代史.csv')
 modern_his_path = os.path.join(History_path, '近代史.csv')
@@ -67,4 +68,7 @@ biological_path_all = [cells_path,
                        ]
 biological_section = ['分子与细胞', '现代生物技术专题', '生物技术实践', '生物科学与社会', '稳态与环境', '遗传与进化']
 
-sw_path = os.path.join(root, 'data/stopwords/哈工大停用词表.txt')
+sw_path = os.path.join(data_path, 'stopwords/哈工大停用词表.txt')
+data_path_q = os.path.join(root, 'data', 'baidu_95.csv')  #整合完的数据
+result_path = os.path.join(root, 'result')
+
