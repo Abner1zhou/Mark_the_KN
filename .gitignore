@@ -1,1 +1,6 @@
 /.idea/
+/data/X_test.npy
+/data/X_train.npy
+/data/y_test.npy
+/data/y_train.npy
+/data/百度题库/
