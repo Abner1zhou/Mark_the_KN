@@ -88,11 +88,22 @@ def proc(df, params):
 
 def data_loader(params, is_rebuild_dataset=False):
     if os.path.exists(os.path.join(root, 'data', 'X_train.npy')) and not is_rebuild_dataset:
-        x_train = np.load(os.path.join(root, 'data', 'X_train.npy'))
-        x_test = np.load(os.path.join(root, 'data', 'X_test.npy'))
+        X_train = np.load(os.path.join(root, 'data', 'X_train.npy'))
+        X_test = np.load(os.path.join(root, 'data', 'X_test.npy'))
         y_train = np.load(os.path.join(root, 'data', 'y_train.npy'))
         y_test = np.load(os.path.join(root, 'data', 'y_test.npy'))
-        return x_train, x_test, y_train, y_test
+
+        with open(os.path.join(params.vocab_save_dir, 'vocab.txt'), 'r', encoding='utf-8') as f:
+            vocab = {}
+            for content in f.readlines():
+                k, v = content.strip().split('\t')
+                vocab[k] = int(v)
+        label_df = pd.read_csv(os.path.join(root, 'data', 'label_baidu95.csv'))
+        # 多标签编码
+        mlb = MultiLabelBinarizer()
+        mlb.fit([label_df['label']])
+
+        return X_train, X_test, y_train, y_test, vocab, mlb
 
     # 读取数据
     df = pd.read_csv(params.data_path, header=None).rename(columns={0: 'label', 1: 'content'})
@@ -116,11 +127,11 @@ def data_loader(params, is_rebuild_dataset=False):
     np.save(os.path.join(root, 'data', 'y_train.npy'), y_train)
     np.save(os.path.join(root, 'data', 'y_test.npy'), y_test)
 
-    return x_train, x_test, y_train, y_test
+    return x_train, x_test, y_train, y_test, word_dict, mlb
 
 
 if __name__ == '__main__':
-    params = get_params()
+    params = get_params("transformer")
     print('Parameters:', type(params))
-    X_train, X_test, y_train, y_test = data_loader(params)
+    X_train, X_test, y_train, y_test, word_dict, mlb = data_loader(params)
     print(X_train)

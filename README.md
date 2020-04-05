@@ -25,13 +25,35 @@
 
 ## TextCNN
 
+**主要参数：**
+
+- filter sizes = 3, 4, 5
+- filter numbers = 128
+- epochs = 25
+- batch sizes = 256
+
+
+
 **结果：**
 
-micro_f1: 0.84510887
+Micro f1: 0.84510887
 
-macro_f1: 0.6661619
-
-
+Macro f1: 0.6661619
 
 
 
+## Transformer
+
+**主要参数：**
+
+- padding-size  = 300
+- layer numbers = 6
+- d_model = 256
+- head numbers = 4
+- batch size = 64
+
+**结果：**
+
+- Epoch 10 Loss 0.0366 Accuracy 0.9894
+- Micro f1: 0.8451088666915894
+- Macro f1: 0.6661618947982788
