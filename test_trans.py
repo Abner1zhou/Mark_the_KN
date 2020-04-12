@@ -2,7 +2,7 @@
 """
 @author: 周世聪
 @contact: abner1zhou@gmail.com
-@desc: 
+@desc: Transformer 测试文件
 @date:2020/4/5
 """
 import argparse

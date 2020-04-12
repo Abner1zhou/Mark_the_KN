@@ -57,3 +57,9 @@ Macro f1: 0.6661619
 - Epoch 10 Loss 0.0366 Accuracy 0.9894
 - Micro f1: 0.8451088666915894
 - Macro f1: 0.6661618947982788
+
+## BERT
+
+目录说明：
+
+bert_model : BERT官方代码
