@@ -3,11 +3,12 @@
 @author: 周世聪
 @contact: abner1zhou@gmail.com
 @desc: bert data process. 因为BERT的word token直接调用源代码， 和之前的不太一样。所以需要单独构建一个数据处理文件
+@tensorflow version = 1.14.0
 @date:2020/4/12
 """
 import pandas as pd
 import os
-
+# 注意BERT源码用的是Tensorflow 1， 运行的时候需要切换环境
 from model.bert.bert_model import tokenization
 
 # Mark_the_KN/data/baidu_95.csv
